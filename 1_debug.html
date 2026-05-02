@@ -33,7 +33,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Broken Web Map</title>
+    <title>A Working Web Map</title>
+    <!-- fixed title
     
     <!-- Leaflet CSS stylesheet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -43,7 +44,7 @@
         h1 {
             color: white;
         }
-        .map {
+        #map {
             border: 4px solid red;
         }
     </style>
@@ -59,12 +60,15 @@
     <!-- start of our JavaScript code -->
     <script>
         // Initialize the map
-        let map = L.map('mapElement')
+        //Correct ID (syntax)
+        let map = L.map('map')
         // Center the map on UMD campus, and set the zoom level
-        map.setView([-92.08, 46.82], 15);
+        //Coordinates were reversed (visual troubleshooting)
+        map.setView([46.82, -92.08], 15);
         
         // Add OpenStreetMap tiles
-        const tiles = L.tileLayer('https://tile.openstreetmap.orgg/{z}/{x}/{y}.png', {
+        // .orgg --> .org
+        const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
         }).addTo(map);
